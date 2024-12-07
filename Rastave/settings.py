@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users',
+    'contracts'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,40 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+DOCUSIGN = {
+    'INTEGRATION_KEY': 'dee5c16e-302d-4193-9320-371b88effae8',
+    'SECRET_KEY': 'e5e2714b-c48f-46dd-8ab9-1807aa4bfb84',
+    'REDIRECT_URI': 'http://127.0.0.1:8000/register',
+    'BASE_URL': 'https://demo.docusign.net/restapi',  # برای محیط تست
+    'ACCESS_TOKEN': "eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCAXv5R8hbdSAgAgMbCs_oW3UgCAEsmstpyzENIgF_vaySzkeoVAAEAAAAYAAIAAAAFAAAAHQAAAA0AJAAAAGRlZTVjMTZlLTMwMmQtNDE5My05MzIwLTM3MWI4OGVmZmFlOCIAJAAAAGRlZTVjMTZlLTMwMmQtNDE5My05MzIwLTM3MWI4OGVmZmFlOBIAAQAAAAYAAABqd3RfYnIjACQAAABkZWU1YzE2ZS0zMDJkLTQxOTMtOTMyMC0zNzFiODhlZmZhZTg.IGatj8bQYyCFHUuXweJKjGuopbVJiLf2-_Ze7YlA_axVkaiZrG1pYKircouWo3FmLk6N1P42Eicis0FcnTvzBDxzzjxvoPUddH8s1egjNjbsmPs6WD92XlnSlmd83Yp_r3a3IwaZIKZyZfN9HShJR_0NQwXYjyVjcavnYIuIDgpfKlNP66EPLk5V73x3gIgiZTyCcCypsRZTyFJWwXyKR9-7nMdfvaqJJh879npQYWiWaJuBT1BQXtbr5zJC34pMKcLGrWuGd2PNQk1MjQk6WjEx6krvNAzejA4MEpkS2EVU9Vn9Nkzw6BpqiGtsdn84sTW0qWG5eJI8Vb0YeXXCOQ",
+    'ACCOUNT_ID': '31431581',
+    'PRIVATE_KEY': """
+        MIIEpAIBAAKCAQEAgLY35stw7QQk56O3DszEZsSg2mg8kUjD0FN4qeNnT6dIRDsg
+        koTpnv/X134blthFLv8fo2UvWoJDAFK9iUdELwkYaZp0xCgoAuyaQoHh3dcQp6x2
+        UQMIIsiczkyPkdopQn3T6cJxfDCxHtl8OaqqYnWvdsDZPzmZRWv1ShI3WBVRCCYJ
+        lA+taGeMMJEERSb8P6S3tHsexWi1RgGY9iqKxLNJhqE7MFN9pI6QxaYrrFBAXJFm
+        qjCM+9Hsq4Lzry3CsTcIrcOe7uoi8AAXwao45qZGLJhXxHE/J3Nmj4t1E+Z2JP7J
+        d6Q659dbDCBvpoY1Y7XIjcQIOzf9yPzfib7I4QIDAQABAoIBADtCafNvODNPxKQH
+        mskMGuLL5dkYw8YKL+ly/OuPAOpJ9PpBFMqQujUTyu7yp0YolZXBLXJfrFEqByoX
+        bh9NugVD1UMNs3P6nw1VnOJBBVpLYeYo/6Jl2HGXVqae1j0LKhLsdsw502Ef0/SF
+        om20d1T0pQ/yUzOKU9iED3+Gaoe5RCz+K8brjagtFg5Dqk9NCgRkjNkonOFXK/Tm
+        eSe8x0m30Myh0DgYBc0L1HFDWT7K1IM0xN4aAhblenDkMGW5ePvoGNfzvgBS47HK
+        cMB2YLVYqpXGaQO+EHlpRlux2BaMtprEe5yqRDock9aSgay1EBYRvXSuiWEXXTzp
+        2tmxx/cCgYEAztxGSCXjVa1N7E8CGHgZP8IKtQb7eOVXqj8yooKdhz4G9ZPH3j8Q
+        yX91Km8gnekhxEH3wFwzDpyS5sxC5snddl56w0/vzTFKxTGDVmXihyK2gUAmj27a
+        1kJF+/KNwSDDq5UfJzpXDm9uzeN0On+NaBviCmcjDQ7CHILev8NIVNcCgYEAn0mE
+        9XwcLN7ieY8VyU75eSFghwsRU6M+D/N7XM3DvLDiwAahEjsTa/kRqpwt5gO6r0fb
+        bFuzq6DArCF/nK7/nYBtQCk3O+zLxLhoPoYCZ3D5aYTUlWf+VOkmccDFjk9pl1WM
+        OMHv4J0SEUU1+RlJ+yh6rufDxTZwrSPU+7d5YQcCgYEAtsvOS4k3mAl6V30F9AuE
+        /GODRK8z34SC8E3Cd/sGK3GzgqWhtBJ0yiqYpfPnlcNi9GP7BAA1mg7gfZU49Wqj
+        Ciu5PgjQdrm9Qf5b+ig0gog5UIQYzxz9wuJzp42SmHxUjLZM/kQ+k+ICv2vk1KDM
+        m5gwKlMzlSFahQlcv4ZYz6cCgYEAg2+o9N/KaAQqoN++vHQcSyWNfyFU1Mz44zSo
+        cLWhdEwJbyaJNn/k0M2fFEb3YLtnCkei+dDZex+UnPSvVlzYs+BLRgw8dYg5xEPe
+        UOlHho+kXruqpvY+2VXh0S+eVIWWvbdrk1IEXDV/uRyBIuEJOOP4B+dalZsMcvIE
+        RwjocXUCgYBeVrZxyN4gGpPacAFzrSyEC1qTkS9XGFl9oaqLIlkHqPrtMI0SSfcC
+        e88fZ52o2JYUDVouvrPfzocEiQ20yReB6bOBEVugynWkdqH8Fsnc48mZ/ckpRNwy
+        n1iU5tfO4uE7xkyklbzPpB4yujkex8NOkBBZsI2MP5TtcVuSwTxSRQ=="""  
+        
+
+}
