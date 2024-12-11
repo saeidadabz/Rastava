@@ -1,15 +1,10 @@
-from django.shortcuts import render
-
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate,login
 from django.shortcuts import render , redirect
 from django.urls import reverse_lazy
-from .forms import CustomUserCreationForm
-
-
-
-
+from .forms import CustomUserCreationForm, CustomUserLoginForm
+from django.contrib import messages
 
 import jwt
 import time
@@ -26,16 +21,20 @@ class RegisterView(CreateView):
     
 
 def login_view(request):
+    form=CustomUserLoginForm()
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('contracts:create_contract')  # هدایت به صفحه ایجاد قرارداد
+            return redirect('send_contract')  # هدایت به صفحه ایجاد قرارداد
         else:
-            return render(request, 'login.html', {'error': 'Invalid credentials'})
-    return render(request, 'login.html')
+              return render(request, 'registeration/login.html', {'error': 'Invalid credentials','form':form})
+              print("dsf")
+            #   messages.error(request, 'invalid credentiallll','danger')
+    else:
+         return render(request, 'registeration/login.html',{'form':form})
 
    
 

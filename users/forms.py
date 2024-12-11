@@ -10,3 +10,9 @@ class CustomUserCreationForm(UserCreationForm):
         model=CustomUser
 
         fields=('username','email','password1','password2')
+
+class CustomUserLoginForm(forms.ModelForm):
+
+    class Meta:
+        model=CustomUser
+        fields=('username','password')
